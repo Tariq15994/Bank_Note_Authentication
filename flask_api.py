@@ -2,13 +2,14 @@
 from flask import Flask, request, jsonify, render_template
 import numpy as np
 import pickle
-import pandas as pd
 
 app=Flask(__name__)
 
 
 pickle_in = open("classifier.pkl","rb")
 classifier=pickle.load(pickle_in)
+
+
 
 @app.route('/')
 def home():
@@ -27,18 +28,14 @@ def predict():
 
 @app.route('/predict_api',methods=['POST'])
 def predict_api():
-    '''
-    For direct API calls trought request
-    '''
     data = request.get_json(force=True)
     prediction = model.predict([np.array(list(data.values()))])
 
     
     return jsonify(prediction)
-
-    
-
+  
 if __name__=='__main__':
     app.run(host='0.0.0.0',debug=True)
+
     
     
