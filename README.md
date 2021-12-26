@@ -1,4 +1,4 @@
-# Deploy Machine Learning Pipeline on the cloud using Docker Container
+# Deploy Machine Learning Pipeline on the Azure cloud using Docker Container
 ## Bank_Note_Authentication ML-Model-Using-Flask
 Bank Note Authentication using Machine Learning from development to deployment
 
